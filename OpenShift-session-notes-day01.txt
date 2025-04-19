@@ -69,18 +69,65 @@ https://rol.redhat.com [Red Hat Login ID/password]
 								   https://github.com 
 								   https://catalog.redhat.com/
 
-
-
-
-
-
-
-
-
-
+  - registry.ocp4.example.com      INternal registry 
+  - idm.ocp4.example.com           LDAP node 
+  - master01.ocp4.example.com      OCP cluster (master/worker).
   
-   
-   
+  Note: 
+   As per Prod - w.r.t OCP cluster 
+   3 master nodes 
+   N worker nodes [few worker nodes can be other nodes]
+  master01.ocp4.example.com
+  master02.ocp4.example.com
+  master03.ocp4.example.com
+  worker01.ocp4.example.com
+  worker02.ocp4.example.com
+  
+
+Point-3#
+Step-1:- Login to VMs.
+Access workstation nodes as student - Click on "Open Console"
+
+$ hostname -s 
+$ hostname -d
+$ hostname -f
+
+$ ssh utility.lab.example.com 
+Note: Login to all nodes (use FQDN while login, from workstation not required any password).
+
+
+Step-2:- Login to OCP cluster.
+$ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+
+FYI-
+user name - admin 
+password  - redhatocp 
+API URL   - https://api.ocp4.example.com:6443 
+
+AP URL - https://api.clusterName.baseDomain:6443 
+clusterName  - ocp4 
+baseDomain   - example.com 
+Default port - 6443 
+
+***************************
+ssh api.ocp4.example.com   [did not worked as of now]
+
+$ ssh root@utility.lab.example.com 
+# cd /home/lab.ocp4/auth 
+# ls 
+kubeadmin-password kubeconfig 
+# scp -r kube* student@workstation:/home/student/
+# exit 
+$ cat kubeadmin-password ; echo 
+lksjdflksjlfksd
+$ cat kubeconfig | grep server 
+$ oc login -u kubeadmin  -p lksjdflksjlfksd  https://api.ocp4.example.com:6443 
+
+$ ssh api.ocp4.example.com
+$ sudo su - 
+# lsof -i:6443 
+
+***************************
 
 
 
@@ -93,11 +140,3 @@ https://rol.redhat.com [Red Hat Login ID/password]
 
 
 
-
- 
- 
- 
- 
- 
- 
- 
