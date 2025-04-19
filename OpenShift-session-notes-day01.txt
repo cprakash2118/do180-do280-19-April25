@@ -126,9 +126,93 @@ $ oc login -u kubeadmin  -p lksjdflksjlfksd  https://api.ocp4.example.com:6443
 $ ssh api.ocp4.example.com
 $ sudo su - 
 # lsof -i:6443 
-
 ***************************
+########################################################################
+Concept- Authetication & Authorization (DO280 - Unit3).
+https://docs.redhat.com/en/documentation/openshift_container_platform/4.13/html/authentication_and_authorization/index
+https://docs.redhat.com/en/documentation/openshift_container_platform/4.14/html/authentication_and_authorization/index
 
+Task-1:-
+Login to Red Hat OpenShift Cluster using below points (idp = htpasswd)
+Note: idp or Identity Provider - htpasswd, LDAP, RH sso, any vendor SSO, OIDC 
+
+user1-5/redhat
+
+user name              secretName                      idP (Identity Provider)
+user1-5            secret-htpasswd-devops-team        htpasswd-idp-devops-team 
+
+
+Step-1# Create htpasswd-user detail file. 
+
+$ htpasswd -c -b -B htpasswd-file-any-name  user1 redhat 
+$ htpasswd    -b -B htpasswd-file-any-name  user2 redhat 
+$ htpasswd    -b -B htpasswd-file-any-name  user3 redhat
+$ htpasswd    -b -B htpasswd-file-any-name  user4 redhat
+$ htpasswd    -b -B htpasswd-file-any-name  user5 redhat
+
+$ cat htpasswd-file-any-name
+
+FYI- Step-1, Operation outside the OCP cluster.
+Note: htpasswd 
+command not found.
+$ which htpasswd 
+$ rpm -q -f /bin/htpasswd 
+httpd-tools 
+$sudo yum install httpd-tools
+
+Step-2# Create "secret=secret-htpasswd-devops-team" w.r.t namespace="openshift-config", secret type - generic.
+
+- Login to OCP cluster 
+$ oc login -u kubeadmin -p password https://api.ocp4.example.com:6443 
+$ oc version 
+$ oc get nodes 
+$ oc whoami 
+
+FYI - Login as "cluster-admin", cluster-admin role same as "root" user in Linux OS.
+Defult cluster-admin - "kubeadmin" 
+
+$ oc create secret generic secret-htpasswd-devops-team --from-file htpasswd=htpasswd-file-any-name -n openshift-config 
+$ oc get secret -n openshift-config
+$ oc get secret secret-htpasswd-devops-team -n openshift-config
+$ oc get secret secret-htpasswd-devops-team -n openshift-config -o yaml 
+$ oc get secret secret-htpasswd-devops-team -n openshift-config -o json 
+
+
+Note: Do not delete this.
+$ oc delete secret secret-htpasswd-devops-team -n openshift-config
+
+
+Step-3# Oauth service (Inbuild authentication service w.r.t OpenShift).
+$ oc get oauth/cluster 
+$ oc get oauth/cluster -o yaml 
+$ oc get oauth/cluster -o yaml > any-name-oauth.yaml 
+$ vim any-name-oauth.yaml
+$ oc apply -f any-name-oauth.yaml
+
+Note: update to cluster 
+
+$ oc get pods -n openshift-authentication
+
+$ oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+  
 
 
 
