@@ -1,0 +1,103 @@
+Point-1# 
+Product - Red Hat OpenShift
+https://www.redhat.com/en/technologies/cloud-computing/openshift
+
+Product Editions- 
+1-# Cloud services editions
+ - "Red Hat OpenShift" Service on AWS
+ - Microsoft Azure "Red Hat OpenShift"
+ - "Red Hat OpenShift" Dedicated
+ - "Red Hat OpenShift" on IBM Cloud
+
+
+2-# Self-managed editions
+ - Red Hat OpenShift Kubernetes Engine  (Basic)
+ - Red Hat OpenShift Container Platform (Standard)
+ - Red Hat OpenShift Platform Plus      (Add on Services)
+ - Red Hat OpenShift Virtualization Engine (w.r.t OpenShift Virtualization)
+
+3-# Services & add-ons
+ - Red Hat OpenShift AI (AI267/EX267) 
+ - Red Hat OpenShift Lightspeed
+ - Red Hat OpenShift Virtualization (DO316/EX316)
+ - Red Hat Quay
+ - Red Hat Advanced Cluster Management for Kubernetes (DO480/EX480)
+ - Red Hat Advanced Cluster Security for Kubernetes   (DO430/EX430)
+ - Red Hat 3scale API Management (DO240/EX240)
+ - Red Hat OpenShift Consulting 
+ Refere link 
+ https://www.redhat.com/en/services/consulting/cloud-native-development
+ https://www.redhat.com/en/resources/openshift-skill-paths-datasheet
+ 
+ Red Hat Certified OpenShift Administrator skills path:-
+ DO180/280/380 
+ 
+Point-2#
+Classroom Environment:-
+
+ROL - Red Hat Online Learning:-
+https://rol.redhat.com [Red Hat Login ID/password]
+- LAB 
+- Resource (Access Bookself) - Download.
+
+1-# User details:-
+  Login to VMs/Servers 
+  - student/student   
+  - root/redhat 
+  
+  Login to OpenShift Cluster:-
+  - admin/redhatocp 
+  - developer/developer 
+  - kubeadmin/password-file 
+
+2-# Network/Domain details:-
+     Domain                 N/w Range       N/w Name 
+   lab.example.com     - 172.25.250.0/24    Student Network 
+   ocp4.example.com    - 192.168.50.0/24    Cluster Network
+   example.com         - 172.25.252.0/24    Classroom Network 
+   
+3-# Details about VMs/serves 
+  - workstation.lab.example.com    [Jump server, used for connect to OCP cluster]
+  - utility.lab.example.com        [Build OCP cluster, running required services DNS,HAproxy,DHCP,NFS etc]
+                                   FYI- Connect Student n/w to Cluster Network 
+  - bastion.lab.example.com        [Connect  "Student n/w" to "Classroom N/w"]
+  - classroom.example.com          [It allow to connect network]
+                                   FYI- internet connectivity required for registries 
+								   quay.io 
+								   https://registry.redhat.io 
+								   http://registry.access.redhat.com
+								   https://github.com 
+								   https://catalog.redhat.com/
+
+
+
+
+
+
+
+
+
+
+  
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
