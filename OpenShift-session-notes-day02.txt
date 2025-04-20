@@ -1,0 +1,103 @@
+#Day-02 - Quick recap:-
+1-# Product - Red Hat OpenShift.
+2-# Classroom Environment.
+   - Login details for users w.r.t VMs/Servers.
+     student/student [sudo access]
+     root/redhat 
+	 
+   - Login details for users w.r.t OCP cluster.
+     admin/redhatocp ["cluster-admin" - full access to OPC cluster]
+     developer/developer [normal user to OCP]
+     kubeadmin/kubeadmin-password 
+	 
+     FYI - /home/lab/ocp4/auth/kube* w.r.t "utility.lab.example.com"	[ssh root@utility - from workstation node] 
+	      kubeconfig 
+		  kubeadmin-password
+	 
+	 $ oc login -u admin -p redhatocp https://api.ocp4.example.com:6443 
+	 
+	 oc - "OpenShift Client" [Using for to communicate with OCP cluster, same as "kubectl" in case of k8s]
+	 oc --help |less 
+	 API URL - https://api.ocp4.example.com:6443 
+	         - https://api.clusterName.BaseDomain:6443 
+	    clusterName -  ocp4 
+		BaseDomain  - example.com 
+		HAproxy(LB) - 6443 (port) - as per LAB - "utility.ocp4.example.com"
+     
+	 utility.ocp4.example.com - two NIC (network Interface - eth0-172.25.250.0/24, eth1-192.168.50.0/24)
+     172.25.250.0/24 - Student Network (lab.example.com]
+     192.168.50.0/24 - CLuster Network (ocp4.example.com] 
+	 NAT already done by RH on workstation node [w.r.t cluster network]
+	 
+   - VMs details.
+     workstation.lab.example.com    [jump server "oc, htpasswd, helm etc"]
+	 utility.lab.example.com        [Impt node - DNS,HAproxy,DHCP,PXE,NFS,APache, etc ]
+	 master01.ocp4.example.com      [OCP cluster]
+	 
+	 As per Prod setup (POC).
+	 OCP cluster (master,worker node - later some worker node can be infra,storage,custom,xyz).
+	 master01-03.ocp4.example.com 
+	 worker01-N.ocp4.example.com 
+	 
+3-#  Authentication and Authorization
+   OCP Authentication:-
+   1-) Certificate based Authentication (X.509 client certificates).
+   2-) Oauth - Token Based Auth.
+
+   - Certificate based Authentication (X.509 client certificates).
+     via kubeconfig file 
+	 1-) --kubeconfig 
+	 $ oc whoami --kubeconfig /home/student/kubeconfig 
+	 $ oc whoami -t --kubeconfig /home/student/kubeconfig 
+	 $ oc logout --kubeconfig /home/student/kubeconfig 
+	 
+	 2-) Define env variable "KUBECONFIG"
+	   $ env | grep KUBECONFIG
+	   $ export KUBECONFIG=/home/student/kubeconfig 
+	   $ oc whoami 
+	   $ oc whoami -t 
+	   $ oc logout 
+	   
+	   $ unset KUBECONFIG
+	   
+	   NOte: Define this on host/user level (/etc/bash ; .bash_profile).
+	   
+	 3-) Copy the kubeconfig file to "~/.kube/config"
+	     $ cp -rpv /home/student/kubeconfig  ~/.kube/config
+		 
+	   
+	   FYI - k8s/ocp share Rest API to manager all k8s/ocp resources.
+	         oc use API (Provided by k8s/ocp).
+	   
+	Oauth - Token Based Auth:-
+	
+	Task-01:- 
+	user1-5/redhat   - devops        [group=devops_grp -> self-provisiner]
+	user6-10/redhat  - sre           [group=sre_grp -> cluster-admin access]
+	
+    user11-20/redhat - app-payment   [group=app-payment_grp -> w.r.t payment-ns]
+	                                 [user11-12 - admin ; user13-18 - edit ; user19-20 - view w.r.t NS=payment-ns]
+									 
+    user21-30/redhat - app-booking 	 [group=app-booking_grp -> w.r.t booking-ns]
+	                                 [user21-22 - admin ; user23-28 - edit ; user29-30 - view w.r.t NS=booking-ns]
+	
+	
+	$ oc new-app app-name image-name 
+	Eg:
+	$ oc new-app app01 httpd:2.4 
+	$ oc get pods 
+	$ oc get svc 
+	$ oc get replicaset 
+	$ oc get deployment 
+	$ oc get is (sometime)
+	
+	When you want to provides acces to end user (to access the application running on OCP cluster).
+	$ oc get svc 
+	$ oc expose service svc-name --hostname myapp.apps.ocp4.example.com
+	$ oc get route 
+	
+	
+	
+	
+	
+	
