@@ -1,0 +1,472 @@
+    1  sudo reboot
+    2  ssh lab@utility
+    3  oc get nodes
+    4  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+    5  oc whoami
+    6  htpasswd
+    7  which htpasswd
+    8  oc whoami
+    9  vim .vimrc
+   10  exec bash
+   11  htpasswd -c -b -B Openshift-users armstrong indionce
+   12  cat Openshift-users 
+   13  htpasswd -b -B Openshift-users collins veraster
+   14  htpasswd -b -B Openshift-users aldrin roonkere
+   15  htpasswd -b -B Openshift-users jobs sestiver
+   16  htpasswd -b -B Openshift-users 
+   17  htpasswd -b -B Openshift-users wozniak glegunge
+   18  cat Openshift-users 
+   19  oc create secret generic ex280-idp-secret --from-file htpaswd=Openshift-users -n openshift-config
+   20  oc get oauth cluster -o yaml
+   21  oc get oauth cluster -o yaml > idp.yaml
+   22  ls
+   23  vim idp.yaml 
+   24  oc replace -f idp.yaml 
+   25  vim idp.yaml 
+   26  oc replace -f idp.yaml 
+   27  vim idp.yaml
+   28  oc replace -f idp.yaml 
+   29  watch oc get pods -n openshift-authentication
+   30  oc get pods -n openshift-authentication
+   31  oc delete pods oauth-openshift-746594664d-8krjw -n openshift-authentication
+   32  oc get pods -n openshift-authentication
+   33  oc login -u armstrong -p indionce
+   34  cat Openshift-users 
+   35  oc login -u armstrong -p indionce
+   36  vim idp.yaml 
+   37  oc login -u armstrong -p indionce
+   38  oc replace -f idp.yaml 
+   39  oc get pods -n openshift-authentication
+   40  oc delete pods oauth-openshift-746594664d-7l488 -n openshift-authentication
+   41  oc get pods -n openshift-authentication
+   42  oc login -u 
+   43  oc login -u armstrong -p indionce
+   44  cat Openshift-users 
+   45  ls
+   46  rm -rf Openshift-users 
+   47  rm -rf idp.yaml 
+   48  ls -lrt
+   49  oc delete secret ex280-idp-secret
+   50  oc delete secret ex280-idp-secret -n openshift-config
+   51  htpasswd
+   52  oc whoami
+   53  htpasswd -c -b -B Openshift-users armstrong indionce
+   54  cat Openshift-users 
+   55  htpasswd -b -B Openshift-users collins veraster
+   56  htpasswd -b -B Openshift-users aldrin roonkere
+   57  htpasswd -b -B Openshift-users jobs sestiver
+   58  htpasswd -b -B Openshift-users wozniak glegunge
+   59  oc create secret generic ex280-idp-secret --from-file htpasswd=Openshift-users -n openshift-config
+   60  oc get oauth cluster -o yaml
+   61  oc get oauth cluster -o yaml > idp.yaml
+   62  vim idp.yaml 
+   63  oc replace -f idp.yaml 
+   64  oc get pods -n openshift-authentication
+   65  oc login -u armstrong -p indionce
+   66  oc login -u collins -p veraster
+   67  oc login -u aldrin -p roonkere
+   68  oc login -u jobs -p sestiver
+   69  oc login -u wozniak -p glegunge
+   70  oc whoami
+   71  cp .auth/ocp4-kubeconfig .kube/config 
+   72  oc whoami
+   73  mkdir work 
+   74  cd work/
+   75  ll
+   76  git clone https://github.com/cprakash2118/do180-do280-19-April25
+   77  ll
+   78  cd do180-do280-19-April25/
+   79  pwd
+   80  ll
+   81  cd ..
+   82  ll
+   83  whoami 
+   84  hostname -s
+   85  hostname -d
+   86  hostname -f
+   87  ssh utility.lab.example.com 
+   88  nslookup quay.io 
+   89  nslookup google.com
+   90  route -n 
+   91  ssh classroom 
+   92  ssh registry 
+   93  ssh registry.ocp4.example.com 
+   94  ssh idm.ocp4.example.com 
+   95  oc get nodes
+   96  oc debug node/master01 
+   97  oc logout 
+   98  oc get nodes
+   99  mv .kube /tmp/
+  100  oc get nodes
+  101  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  102  oc login -u admin -p redhat https://api.ocp4.example.com:6443
+  103  ssh root@utility.lab.example.com 
+  104  ll
+  105  cat kubeadmin-password 
+  106  cat kubeadmin-password ; echo  
+  107  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  108  oc version 
+  109  oc get nodes
+  110  oc get clusterversion 
+  111  oc whoami 
+  112  cat kubeconfig | grep server
+  113  ssh api.ocp4.example.com
+  114  ssh api.ocp4.example.com -l root
+  115  exit
+  116  env | grep KUBE
+  117  exit
+  118  mkdir work 
+  119  cd work/
+  120  pwd
+  121  ll
+  122  rm -rf do180-do280-19-April25/
+  123  ll
+  124  htpasswd --help 
+  125  htpasswd -c -B -b htpasswd-any-name user1 redhat 
+  126  ll
+  127  cat htpasswd-any-name 
+  128  htpasswd -c -B -b htpasswd-any-name user2 redhat 
+  129  cat htpasswd-any-name 
+  130  htpasswd -c -B -b htpasswd-any-name user1 redhat 
+  131  cat htpasswd-any-name 
+  132  htpasswd -B -b htpasswd-any-name user2 redhat 
+  133  cat htpasswd-any-name 
+  134  htpasswd  -b htpasswd-any-name user3 redhat 
+  135  cat htpasswd-any-name 
+  136  htpasswd   htpasswd-any-name user4 redhat 
+  137  htpasswd   htpasswd-any-name user4
+  138  cat htpasswd-any-name 
+  139  htpasswd -B -b htpasswd-any-name user5 redhat 
+  140  cat htpasswd-any-name 
+  141  hostname -d
+  142  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  143  which htpasswd
+  144  rpm -q -f /bin/htpasswd
+  145  ll
+  146  oc whoami 
+  147  oc version 
+  148  oc get nodes
+  149  ll
+  150  cat htpasswd-any-name 
+  151  #oc create secret generic secret-htpasswd-devops-team --from-file htpasswd=htpasswd-any-name -n openshift-config 
+  152  oc projects | grep openshift-config
+  153  oc projects
+  154  oc projects |wc -l 
+  155  oc projects | grep openshift-config
+  156  oc --help |less
+  157  oc get secret -n openshift-config 
+  158  oc get secret htpasswd-secret -n openshift-config 
+  159  oc get secret htpasswd-secret -n openshift-config -o yaml 
+  160  oc get secret htpasswd-secret -n openshift-config -ojson 
+  161  oc get secret htpasswd-secret -n openshift-config -o json 
+  162  ll
+  163  oc get secret htpasswd-secret -n openshift-config -o yaml 
+  164  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  165  cat htpasswd-any-name 
+  166  oc create secret generic secret-htpasswd-devops-team --from-file htpasswd=htpasswd-any-name -n openshift-config 
+  167  oc get secret -n openshift-config
+  168  oc get secret secret-htpasswd-devops-team -n openshift-config 
+  169  oc get secret secret-htpasswd-devops-team -n openshift-config  -o yaml 
+  170  oc create configmap configmap-htpasswd-devops-team -n openshift-config --from-file htpasswd=htpasswd-any-name 
+  171  oc get cm -n openshift-config 
+  172  oc get cm configmap-htpasswd-devops-team -n openshift-config 
+  173  oc get cm configmap-htpasswd-devops-team -n openshift-config -o yaml 
+  174  oc get secret secret-htpasswd-devops-team -n openshift-config  -o yaml 
+  175  oc get cm configmap-htpasswd-devops-team -n openshift-config -o yaml 
+  176  oc get cm configmap-htpasswd-devops-team -n openshift-config
+  177  oc delete cm configmap-htpasswd-devops-team -n openshift-config
+  178  oc get cm configmap-htpasswd-devops-team -n openshift-config
+  179  oc get secret secret-htpasswd-devops-team -n openshift-config
+  180  oc delete secret secret-htpasswd-devops-team 
+  181  oc project -q
+  182  oc delete secret secret-htpasswd-devops-team -n openshift-config
+  183  oc get secret secret-htpasswd-devops-team -n openshift-config
+  184  oc get secret -n openshift-config
+  185  oc create secret generic secret-htpasswd-devops-team --from-file htpasswd=htpasswd-any-name -n openshift-config 
+  186  oc get secret secret-htpasswd-devops-team -n openshift-config
+  187  oc get secret -n openshift-config
+  188  oc get secret secret-htpasswd-devops-team -n openshift-config -o yaml 
+  189  oc whoami 
+  190  cat ~/.kube/config 
+  191  oc whoami 
+  192  oc whoami -t
+  193  oc --help |less
+  194  oc get nodes 
+  195  kubectl get nodes
+  196  oc version 
+  197  oc get oauth/cluster -o yaml 
+  198  oc get oauth/cluster -o yaml > oauth.yaml 
+  199  vim oauth.yaml 
+  200  #oc apply -f oauth.yaml 
+  201  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  202  oc get pods -n openshift-authentication
+  203  oc apply -f oauth.yaml 
+  204  oc get pods -n openshift-authentication
+  205  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  206  oc get pods -n openshift-authentication
+  207  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  208  oc whoami 
+  209  oc get nodes
+  210  oc login -u user2 -p redhat https://api.ocp4.example.com:6443 
+  211  oc login -u user3 -p redhat 
+  212  oc login -u user4 -p redhat https://api.ocp4.example.com:6443 
+  213  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  214  oc whoami
+  215  oc get users
+  216  oc login -u user5 -p redhat https://api.ocp4.example.com:6443 
+  217  oc get users
+  218  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  219  oc get users
+  220  oc get users | grep devops
+  221  oc whoami 
+  222  oc whoami  --show-console 
+  223  oc get pods -n openshift-authentication
+  224  cat ~/kubeadmin-password 
+  225  cat ~/kubeadmin-password  ; echo 
+  226  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 --loglevel 7 
+  227  cat /home/student/.kube/config
+  228  oc whoami --loglevel 7 
+  229  oc get nodes --loglevel 7 
+  230  cd
+  231  vim .bashrc 
+  232  vim /etc/bashrc 
+  233  ls -la
+  234  ls -la .bash* 
+  235  env | grep KUBE
+  236  ls
+  237  pwd
+  238  ls -l /home/student/kubeconfig
+  239  vim .bashrc 
+  240  source .bashrc 
+  241  env | grep KUBE
+  242  exit
+  243  oc get nodes
+  244  oc logout 
+  245  oc whoami 
+  246  env | grep KUBE
+  247  vim .bashrc 
+  248  exit
+  249  oc whoami 
+  250  oc whoami -t 
+  251  cat .kube/config 
+  252  oc whoami 
+  253  vim .bashrc 
+  254  exit
+  255  oc whoami 
+  256  oc whoami -t 
+  257  env | grep KUBE
+  258  unset KUBECONFIG 
+  259  env | grep KUBE
+  260  oc whoami -t 
+  261  oc whoami 
+  262  cat .kube/config 
+  263  oc whoami 
+  264  source .bashrc
+  265  oc whoami 
+  266  env | grep KUBE
+  267  oc logout 
+  268  oc get co 
+  269  oc get co  |less
+  270  oc get pods -n openshift-authentication
+  271  oc get pods -n openshift-authentication-operator 
+  272  oc whoami 
+  273  unset KUBECONFIG 
+  274  oc whoami 
+  275  oc whoami --loglevel 7 
+  276  mv .kube /tmp/
+  277  mv .kube /var/tmp/
+  278  oc whoami --loglevel 7 
+  279  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 --loglevel 7 
+  280  oc whoami 
+  281  #oc login -u user1 -p redhat https://api.ocp4.example.com:6443 --loglevel 7 
+  282  cat .kube/config 
+  283  oc get nodes --loglevel 7 
+  284  #oc login -u user1 -p redhat https://api.ocp4.example.com:6443 --loglevel 7 
+  285  oc whoami -t 
+  286  cat .kube/config 
+  287  oc whoami -t 
+  288  cat .kube/config 
+  289  oc whoami -t 
+  290  oc logout 
+  291  cat .kube/config 
+  292  oc whoami 
+  293  mv .kube /tmp/xyz
+  294  oc whoami 
+  295  oc login -u user1 -p redhat https://api.ocp4.example.com:6443 
+  296  oc whoami 
+  297  cat .kube/config 
+  298  oc whoami -t
+  299  oc get users
+  300  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 --loglevel 7 
+  301  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  302  oc get users 
+  303  mkdir work
+  304  mkdir work2
+  305  cd work
+  306  cd 
+  307  cd work2/
+  308  pwd
+  309  ll
+  310  htpasswd -c -B -b any-file-name user6 redhat 
+  311  htpasswd  -B -b any-file-name user7 redhat 
+  312  htpasswd  -B -b any-file-name user8 redhat 
+  313  htpasswd  -B -b any-file-name user9 redhat 
+  314  htpasswd  -B -b any-file-name user10 redhat 
+  315  ll
+  316  cat any-file-name 
+  317  oc create secret generic secret-sre --from-file htpasswd=any-file-name -n openshift-config 
+  318  oc get oauth/cluster -o yaml > oauth.yaml
+  319  vim oauth.yaml 
+  320  oc get pods -n openshift-authentication
+  321  oc apply -f oauth.yaml 
+  322  oc get pods -n openshift-authentication
+  323  oc get oauth/cluster -o yaml 
+  324  oc get pods -n openshift-authentication
+  325  watch oc get pods -n openshift-authentication
+  326  oc get pods -n openshift-authentication
+  327  oc delete pod oauth-openshift-5c4c485b6f-fjflx -n openshift-authentication
+  328  watch oc get pods -n openshift-authentication
+  329  oc get deployment -n openshift-authentication
+  330  oc get replicaset -n openshift-authentication
+  331  oc login -u user6 -p redhat https://api.ocp4.example.com:6443 
+  332  for x in {6..10}; do oc login -u user$x -p redhat https://api.ocp4.example.com:6443; done
+  333  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  334  oc get users
+  335  oc get users | grep devops 
+  336  oc get users | grep sre
+  337  touch file-payment
+  338  touch file-booking 
+  339  for x in {11.200}; do htpasswd -B -b file-payment user$x redhat ; done
+  340  for x in {11..20}; do htpasswd -B -b file-payment user$x redhat ; done
+  341  for x in {21..30}; do htpasswd -B -b file-booking user$x redhat ; done
+  342  oc create secret generic secret-app-payment --from-file htpasswd=file-payment -n openshift-config 
+  343  oc create secret generic secret-app-booking --from-file htpasswd=file-booking -n openshift-config 
+  344  oc get oauth/cluster -o yaml > oauth.yaml
+  345  vim oauth.yaml 
+  346  oc apply -f oauth.yaml 
+  347  oc get pods -n openshift-authentication
+  348  oc delete pod oauth-openshift-745c4b478b-qsdkw -n openshift-authentication
+  349  oc get pods -n openshift-authentication
+  350  history  | grep secret 
+  351  oc get pods -n openshift-authentication
+  352  oc get pods -n openshift-config 
+  353  #vim /etc/ssh/sshd_config
+  354  history  | grep for 
+  355  for x in {1..30}; do oc login -u user$x -p redhat https://api.ocp4.example.com:6443; done
+  356  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  357  oc get user | grep devops
+  358  oc get user | grep sre
+  359  oc get user | grep payment
+  360  oc get user | grep booking 
+  361  oc get groups.user.openshift.io 
+  362  oc adm groups new devops_grp 
+  363  oc adm groups new sre_grp
+  364  oc adm groups new add_payment_grp
+  365  oc adm groups new add_booking_grp
+  366  oc get groups
+  367  oc get groups | grep grp
+  368  oc adm groups devops_grp user1 
+  369  oc adm groups  add-users devops_grp user1 
+  370  oc get groups | grep grp
+  371  oc adm groups  add-users devops_grp user2 user3 user4 user5 
+  372  oc adm groups add-users --help |less
+  373  oc get groups | grep grp
+  374  for x in {6..10}; do oc adm groups add-users sre_grp user$x; done
+  375  for x in {11..20}; do oc adm groups add-users add_payment_grp user$x; done
+  376  for x in {21..30}; do oc adm groups add-users add_booking_grp user$x; done
+  377  oc get groups.user.openshift.io  | grep grp 
+  378  oc adm policy add-cluster-role-to-group cluster-admin sre_grp
+  379  oc adm policy add-
+  380  oc describe clusterrolebindings |less
+  381  oc describe clusterrolebindings |grep self
+  382  oc describe clusterrolebindings self-provisioner
+  383  oc login -u user21 -p redhat 
+  384  oc whoami 
+  385  oc get nodes
+  386  oc new-project demo01
+  387  oc project -q 
+  388  oc get all
+  389  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  390  oc describe clusterrolebindings self-provisioner
+  391  oc adm policy remove-cluster-role-from-group --help |less
+  392  oc adm policy remove-cluster-role-from-group self-provisioner system:authenticated:oauth
+  393  oc describe clusterrolebindings self-provisioner
+  394  oc login -u user21 -p redhat 
+  395  oc project -q
+  396  oc new-project demo02 
+  397  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  398  oc adm policy add-cluster-role-to-group self-provisioner
+  399  oc adm policy add-cluster-role-to-group self-provisioner devops_grp
+  400  oc describe clusterrolebindings self-provisioner
+  401  oc whoami 
+  402  oc login -u user11 -p redhat 
+  403  oc new-app --name app-test httpd:2.4 
+  404  oc get projects
+  405  oc get project
+  406  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  407  oc new-project payment-ns 
+  408  oc adm policy add-role-to-user admin user11 -n payment-ns
+  409  oc login -u user11 -p redhat 
+  410  oc get project
+  411  oc new-app --name app-test httpd:2.4 
+  412  oc get pods
+  413  oc delete all -l app=app-test 
+  414  oc get all
+  415  oc whoami 
+  416  oc policy add-role-to-user admin user12 
+  417  oc policy add-role-to-user edit user13
+  418  oc policy add-role-to-user edit user14
+  419  oc policy add-role-to-user edit user15
+  420  oc policy add-role-to-user edit user16
+  421  oc policy add-role-to-user edit user17
+  422  oc policy add-role-to-user edit user18
+  423  oc policy add-role-to-user view user19 
+  424  oc policy add-role-to-user view user20
+  425  oc login -u user19 -p redhat 
+  426  oc get all
+  427  oc new-app --name app-test httpd:2.4 
+  428  oc get pods
+  429  oc get all
+  430  oc login -u user15 -p redhat 
+  431  oc whoami 
+  432  oc get all
+  433  oc new-app --name app-test httpd:2.4 
+  434  oc get pods
+  435  oc get svc 
+  436  oc get rs
+  437  oc get deploy
+  438  oc get deploy app-test -o yaml > deployment-payment-app.yaml 
+  439  ll
+  440  vim deployment-payment-app.yaml 
+  441  oc get pods
+  442  oc apply -f deployment-payment-app.yaml 
+  443  oc get pods
+  444  oc whaomi 
+  445  oc whoami 
+  446  oc scale --replicas=20 deployment app-test 
+  447  oc get pods 
+  448  oc scale --replicas=2 deployment app-test 
+  449  oc get pods 
+  450  oc whoami 
+  451  oc login -u kubeadmin -p GkLhW-tYZIb-GsgvP-oDQVd https://api.ocp4.example.com:6443 
+  452  oc adm policy add-role-to-user view user15 -n demo01 
+  453  oc new-project demo03 
+  454  oc project -q 
+  455  oc whoami 
+  456  oc describe rolebindings |less
+  457  oc project -q 
+  458  oc project demo02 
+  459  oc project demo01 
+  460  history  | grep adm
+  461  history  | grep edit 
+  462  history  | grep user11 
+  463  oc project payment-ns
+  464  oc whoami 
+  465  oc describe rolebindings |less
+  466  oc project -q
+  467  ll
+  468  git clone https://github.com/cprakash2118/do180-do280-19-April25
+  469  cd do180-do280-19-April25/
+  470  ll
+  471  history 
+  472  history  > history-file.txt 
