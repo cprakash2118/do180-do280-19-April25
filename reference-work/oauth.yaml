@@ -1,0 +1,66 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  annotations:
+    include.release.openshift.io/ibm-cloud-managed: "true"
+    include.release.openshift.io/self-managed-high-availability: "true"
+    include.release.openshift.io/single-node-developer: "true"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"config.openshift.io/v1","kind":"OAuth","metadata":{"annotations":{"include.release.openshift.io/ibm-cloud-managed":"true","include.release.openshift.io/self-managed-high-availability":"true","include.release.openshift.io/single-node-developer":"true","release.openshift.io/create-only":"true"},"creationTimestamp":"2024-01-23T12:00:51Z","generation":3,"name":"cluster","ownerReferences":[{"apiVersion":"config.openshift.io/v1","kind":"ClusterVersion","name":"version","uid":"c1595d31-17e8-4a05-9002-d7399f1ed9c3"}],"resourceVersion":"82111","uid":"b03b54a0-f288-407e-82b3-a1124d0de42b"},"spec":{"identityProviders":[{"ldap":{"attributes":{"email":["mail"],"id":["dn"],"name":["cn"],"preferredUsername":["uid"]},"bindDN":"uid=admin,cn=users,cn=accounts,dc=ocp4,dc=example,dc=com","bindPassword":{"name":"ldap-secret"},"ca":{"name":"ca-config-map"},"insecure":false,"url":"ldap://idm.ocp4.example.com/cn=users,cn=accounts,dc=ocp4,dc=example,dc=com?uid"},"mappingMethod":"claim","name":"Red Hat Identity Management","type":"LDAP"},{"htpasswd":{"fileData":{"name":"secret-sre"}},"mappingMethod":"claim","name":"idp-htpasswd-sre-team","type":"HTPasswd"}]}}
+    release.openshift.io/create-only: "true"
+  creationTimestamp: "2024-01-23T12:00:51Z"
+  generation: 4
+  name: cluster
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    kind: ClusterVersion
+    name: version
+    uid: c1595d31-17e8-4a05-9002-d7399f1ed9c3
+  resourceVersion: "856912"
+  uid: b03b54a0-f288-407e-82b3-a1124d0de42b
+spec:
+  identityProviders:
+  - ldap:
+      attributes:
+        email:
+        - mail
+        id:
+        - dn
+        name:
+        - cn
+        preferredUsername:
+        - uid
+      bindDN: uid=admin,cn=users,cn=accounts,dc=ocp4,dc=example,dc=com
+      bindPassword:
+        name: ldap-secret
+      ca:
+        name: ca-config-map
+      insecure: false
+      url: ldap://idm.ocp4.example.com/cn=users,cn=accounts,dc=ocp4,dc=example,dc=com?uid
+    mappingMethod: claim
+    name: Red Hat Identity Management
+    type: LDAP
+  - htpasswd:
+      fileData:
+        name: secret-sre
+    mappingMethod: claim
+    name: idp-htpasswd-sre-team
+    type: HTPasswd
+  - htpasswd:
+      fileData:
+        name: secret-devops
+    mappingMethod: claim
+    name: idp-htpasswd-devops-team
+    type: HTPasswd
+  - htpasswd:
+      fileData:
+        name: secret-payment
+    mappingMethod: claim
+    name: idp-htpasswd-payment-team
+    type: HTPasswd
+  - htpasswd:
+      fileData:
+        name: secret-booking
+    mappingMethod: claim
+    name: idp-htpasswd-booking-team
+    type: HTPasswd

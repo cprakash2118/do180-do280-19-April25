@@ -1,0 +1,186 @@
+    1  sudo reboot
+    2  sudo su -
+    3  mkdir work 
+    4  cd work/
+    5  pwd
+    6  ll
+    7  htpasswd --help 
+    8  htpasswd -c -B -b upload-file-sre user1 redhat 
+    9  htpasswd  -B -b upload-file-sre user2 redhat 
+   10  cat upload-file-sre 
+   11  vim upload-file-sre 
+   12  sudo su - 
+   13  vim upload-file-sre 
+   14  cat upload-file-sre 
+   15  htpasswd  -b upload-file-sre user3 redhat 
+   16  cat upload-file-sre 
+   17  htpasswd --help 
+   18  htpasswd -5  -b upload-file-sre user4 redhat 
+   19  cat upload-file-sre 
+   20  htpasswd -2  -b upload-file-sre user5 redhat 
+   21  cat upload-file-sre 
+   22  ll
+   23  sudo su - 
+   24  ll
+   25  cat upload-file-sre 
+   26  oc create secret generic secret-sre --from-file htpasswd=upload-file-sre -n openshift-config 
+   27  oc whoami 
+   28  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+   29  oc whoami 
+   30  oc create secret generic secret-sre --from-file htpasswd=upload-file-sre -n openshift-config 
+   31  oc get secret -n openshift-config
+   32  history 
+   33  oc get secret -n openshift-config
+   34  oc get secret secret-sre -n openshift-config
+   35  oc get secret secret-sre -n openshift-config -o yaml 
+   36  echo "dXNlcjE6JDJ5JDA1JDd1WFIydG9tNXBSRnl6azVyWUFRQk9OZDJ6LzNETXNlTU1XVVo4c2U1dXBrQUNTNXJJeHBtCnVzZXIyOiQyeSQwNSRLaGxnSi4wWnJlbVVEcndXcTA2VnRPaTJ4YWUxaTVHQm1SL2JIaU02QU5NVmMza0dWcUJ2Qwp1c2VyMzokYXByMSQzZzRzcEduOCRHRzJhR0xZMDZuaU1CVjgyS1BIUjAxCnVzZXI0OiQ2JHJpTjc3M3FZTS96TkdyL3kkTGQ2cnFDRUV0TFZIUHB6d0R4L2lpS3NqVFlaWjhaWGt5MGs1UVJqbE5MYTQxbmdIWVVtUUlHOHdHaEhScUFETmt3NHp3SFcuR3lqbEZMWUQ2VTFZSC4KdXNlcjU6JDUkUzZJMDc0dEFSRkVvbzNtQSREVUI5WmNSdjkvY0UuY01OdVQyVy9xWElKS2xtS0ZWVTVMUW54QW1ScThDCg==" | base64 -w0 
+   37  ll
+   38  cat upload-file-sre 
+   39  ll
+   40  oc get oauth cluster -o yaml > oauth.yaml 
+   41  vim oauth.yaml 
+   42  oc apply -f oauth.yaml 
+   43  vim oauth.yaml 
+   44  oc apply -f oauth.yaml 
+   45  oc get pods -n openshift-authentication
+   46  watch oc get pods -n openshift-authentication
+   47  oc get pods -n openshift-authentication
+   48  oc get rs -n openshift-authentication
+   49  oc get deploy -n openshift-authentication
+   50  oc get deploy -n openshift-authentication-operator 
+   51  oc get pods -n openshift-authentication
+   52  oc adm top nodes
+   53  oc get nodes
+   54  oc debug node/master01 
+   55  oc get pdos -n openshift-authentication
+   56  oc get pods -n openshift-authentication
+   57  oc login -u user1 -p redhat 
+   58  oc login -u user2 -p redhat 
+   59  oc login -u user3 -p redhat 
+   60  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+   61  oc get users
+   62  oc login -u user4 -p redhat 
+   63  oc login -u user5 -p redhat 
+   64  oc login -u user3 -p redhat 
+   65* oc login -u user4 -p redhat http
+   66  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+   67  oc get identities.user.openshift.io 
+   68  oc login -u user5 -p redhat 
+   69  cat upload-file-sre 
+   70  oc login -u user5 -p redhat 
+   71  oc login -u user3 -p redhat https://api.ocp4.example.com:6443  --loglevel 5
+   72  oc login -u user3 -p redhat https://api.ocp4.example.com:6443  --loglevel 7
+   73  oc login -u user3 -p redhat https://api.ocp4.example.com:6443  --loglevel 7 
+   74  ##################
+   75  cat ~/.kube/config 
+   76  oc whaomi --loglevel 7 
+   77  oc whoami --loglevel 7 
+   78  cat /home/student/.kube/config
+   79  oc whoami -t 
+   80  oc whoami 
+   81  htpasswd -c -b -B upload-file-devops user6 redhat  
+   82  htpasswd  -b -B upload-file-devops user7 redhat  
+   83  htpasswd  -b -B upload-file-devops user8 redhat  
+   84  htpasswd  -b -B upload-file-devops user9 redhat  
+   85  htpasswd  -b -B upload-file-devops user10 redhat  
+   86  ll
+   87  touch upload-file-booking
+   88  touch upload-file-payment 
+   89  for x in {11..20}; do htpasswd -b -B upload-file-payment user$x redhat; done
+   90  for x in {21..30}; do htpasswd -b -B upload-file-booking user$x redhat; done
+   91  ll
+   92  cat upload-file-booking 
+   93  cat upload-file-payment 
+   94  cat upload-file-devops 
+   95  oc create secret generic secret-devops --from-file htpasswd=upload-file-devops -n openshift-config 
+   96  oc whoami 
+   97  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+   98  oc create secret generic secret-devops --from-file htpasswd=upload-file-devops -n openshift-config 
+   99  oc create secret generic secret-booking --from-file htpasswd=upload-file-booking -n openshift-config 
+  100  oc create secret generic secret-payment --from-file htpasswd=upload-file-payment -n openshift-config 
+  101  oc get oauth cluster -o yaml > oauth.yaml 
+  102  vim oauth.yaml 
+  103  oc apply -f oauth.yaml 
+  104  oc get pods -n openshift-authentication
+  105  oc delete pod oauth-openshift-654dc5647c-xvslf -n openshift-authentication
+  106  oc get pods -n openshift-authentication
+  107  oc logs  oauth-openshift-654dc5647c-cxqmt -n openshift-authentication
+  108  oc get pods -n openshift-authentication
+  109  for x in {1..30}; do oc login -u user$x -p redhat; done
+  110  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  111  oc get users | grep devops 
+  112  oc get users | grep sre
+  113  oc get users | grep booking 
+  114  oc get users | grep payment 
+  115  vim oauth.yaml 
+  116  oc get groups.user.openshift.io 
+  117  oc adm groups new sre_grp 
+  118  oc adm groups new devops_grp
+  119  oc adm groups new payment_grp 
+  120  oc adm groups new booking_grp 
+  121  oc get groups.user.openshift.io 
+  122  oc get groups.user.openshift.io  | grep grp 
+  123  oc get users | grep sre 
+  124  oc adm groups add-users sre_grp user1 user2 
+  125  for x in {1..5}; do oc adm groups add-users sre_grp user$x; done
+  126  oc get users | grep sre 
+  127  oc get groups.user.openshift.io  | grep grp 
+  128  for x in {6..10}; do oc adm groups add-users devops_grp user$x; done
+  129  for x in {11..20}; do oc adm groups add-users payment_grp user$x; done
+  130  for x in {21..30}; do oc adm groups add-users booking_grp user$x; done
+  131  oc get groups | grep grp 
+  132  oc adm policy add-cluster-role-to-group cluster-admin sre_grp
+  133  oc adm groups add-users sre_grp user6 user7 
+  134  oc get groups | grep grp 
+  135  oc login -u user21 -p redhat 
+  136  oc new-project demo01 
+  137  oc project -q 
+  138  oc login -u user1 -p redhat 
+  139  oc describe clusterrolebindings | grep slef
+  140  oc describe clusterrolebindings | grep self
+  141  oc describe clusterrolebindings self-provisioner
+  142  oc adm policy remove-cluster-role-from-group self-provisioner system:authenticated:oauth
+  143  oc describe clusterrolebindings self-provisioner
+  144  oc annotate clusterrolebinding.rbac self-provisioners 'rbac.authorization.kubernetes.io/autoupdate=false' --overwrite
+  145  oc annotate clusterrolebindings.rbac self-provisioners 'rbac.authorization.kubernetes.io/autoupdate=false' --overwrite
+  146  oc annotate clusterrolebindings.rbac self-provisioner 'rbac.authorization.kubernetes.io/autoupdate=false' --overwrite
+  147  oc login -u user21 -p redhat 
+  148  oc new-project demo02
+  149  oc login -u user22 -p redhat 
+  150  vim oauth.yaml 
+  151  oc get users | head 
+  152  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  153  oc get users | head 
+  154  vim oauth.yaml 
+  155  oc get secret -n openshift-config 
+  156  vim oauth.yaml 
+  157  oc extract secret/ldap-secret -n openshift-config --to=.
+  158  ll
+  159  cat bindPassword 
+  160  cat bindPassword ; echo 
+  161  #oc extract cm/ldap-secret -n openshift-config --to=.
+  162  vim oauth.yaml 
+  163  oc extract cm/ca-config-map -n openshift-config --to=.
+  164  ll
+  165  vim ca.crt 
+  166  oc whoami -t
+  167  oc new-project ns-payment 
+  168  oc new-project ns-booking 
+  169  oc policy add-role-to-user admin user11 -n ns-payment 
+  170  oc policy add-role-to-user admin user21 -n ns-booking
+  171  oc login -u user11 -p redhat 
+  172  oc adm policy add-role-to-user admin user12 
+  173  oc adm policy add-role-to-user edit user13
+  174  oc adm policy add-role-to-user edit user14
+  175  oc adm policy add-role-to-user edit user15
+  176  oc adm policy add-role-to-user edit user16
+  177  oc adm policy add-role-to-user edit user17
+  178  oc adm policy add-role-to-user edit user18
+  179  oc adm policy add-role-to-user view user19
+  180  oc adm policy add-role-to-user view user20
+  181  oc create quota --help |less
+  182  # oc create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
+  183  oc create quota ns-payment-quota --hard=cpu=2,memory=4Gi,pods=20,services=5,secrets=50,persistentvolumeclaims=10 -n ns-payment 
+  184  oc whoami 
+  185  oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+  186  history > history-2.txt
